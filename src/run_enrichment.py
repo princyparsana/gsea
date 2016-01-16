@@ -4,10 +4,10 @@ import sys
 from scipy.stats import fisher_exact
 import os
 from gsea import readgenesets, gsea
-file_name = sys.argv[1]
-background_file_name = sys.argv[2]
-geneset_name = sys.argv[3]
-save_name = sys.argv[4]
+file_name = sys.argv[1] # File with test genes (one gene per line)
+background_file_name = sys.argv[2] # File with background genes (one gene per line)
+geneset_name = sys.argv[3] # filepath+filename of a geneset downloaded from msigdb. Need not parse msigdb file. Script takes care of parsing
+save_name = sys.argv[4] # filepath+name for output file
 
 """ Read test genes"""
 fh = open(file_name,'r')
