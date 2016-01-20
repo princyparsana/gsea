@@ -27,15 +27,15 @@ for line in lines:
 	all_genes.append(line.strip('\n'))
 
 		
-all_genes = set(all_hormones)
+all_genes = set(all_genes)
 test_genes = set(test_genes)
 
 
 
-test_out = gsea(hormone_test_gene_list, all_genes, geneset_name)
+test_out = gsea(test_genes, all_genes, geneset_name)
 
 """ Save result to save_name"""
-fh = open(save_name,'w')
+f = open(save_name,'w')
 print >>f,"TestFile:", file_name, "\nBackgroundFile:", background_file_name, "\nGeneset:", geneset_name, "SaveFile:", save_name
 print >>f,"test_inset\ttest_notinset\tbackground_inset\tbackground_notinset\toddsratio\tpvalue"
 for i in test_out:
