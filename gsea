@@ -1,1 +1,4 @@
+#!/bin/bash
+repoDir=`which gsea | sed -e 's|/gsea||'`
+cd $repoDir
 python src/run_enrichment.py $*
