@@ -26,5 +26,5 @@ def gsea(testlist, background, gene_set):
 		background_inset = len(set(background_list).intersection(gene_sets[i]))
 		background_notinset = len(set(background_list)) - background_inset
 		oddsratio, pvalue = fisher_exact([[test_inset,background_inset],[test_notinset,background_notinset]],alternative='greater')
-		enrich_out[i] = tuple([test_inset, test_notinset, background_inset, background_notinset, oddsratio, pvalue])
+		enrich_out[i] = tuple([test_inset, test_notinset, background_inset, background_notinset, oddsratio, pvalue,','.join(set(testlist).intersection(gene_sets[i]))])
 	return enrich_out
