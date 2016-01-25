@@ -18,6 +18,7 @@ def gsea(testlist, background, gene_set):
 	from scipy.stats import fisher_exact
 	from collections import defaultdict,OrderedDict
 	gene_sets = readgenesets(gene_set)
+	size_gene_sets = len(gene_sets)
 	enrich_out = OrderedDict()
 	for i in gene_sets:
 		test_inset = len(set(testlist).intersection(gene_sets[i]))
@@ -26,5 +27,6 @@ def gsea(testlist, background, gene_set):
 		background_inset = len(set(background_list).intersection(gene_sets[i]))
 		background_notinset = len(set(background_list)) - background_inset
 		oddsratio, pvalue = fisher_exact([[test_inset,background_inset],[test_notinset,background_notinset]],alternative='greater')
-		enrich_out[i] = tuple([test_inset, test_notinset, background_inset, background_notinset, oddsratio, pvalue,','.join(set(testlist).intersection(gene_sets[i]))])
+		bf_adjusted = pvalue * size_gene_sets
+		enrich_out[i] = tuple([test_inset, test_notinset, background_inset, background_notinset, oddsratio, pvalue, bf_adjusted, ','.join(set(testlist).intersection(gene_sets[i]))])
 	return enrich_out
