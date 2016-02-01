@@ -37,7 +37,7 @@ test_out = gsea(test_genes, all_genes, geneset_name)
 """ Save result to save_name"""
 f = open(save_name,'w')
 print >>f,"TestFile:", file_name, "\nBackgroundFile:", background_file_name, "\nGeneset:", geneset_name, "SaveFile:", save_name
-print >>f,"test_inset\ttest_notinset\tbackground_inset\tbackground_notinset\toddsratio\tpvalue"
+print >>f,"\ttest_inset\ttest_notinset\tbackground_inset\tbackground_notinset\toddsratio\tpvalue\tbonferroni-adjusted\ttestgenes_in_set"
 for i in test_out:
 	print >>f, i,'\t','\t'.join(str(j) for j in test_out[i])
 fh.close()
