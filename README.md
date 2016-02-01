@@ -16,3 +16,13 @@ Here,
 `geneset_name` is filepath+name of a geneset downloaded from msigdb. Need not parse msigdb file. Script takes care of parsing
 
 `save_name` is filepath+name for output file
+
+#### Returns the following
+test_inset  
+test_notinset  
+background_inset  
+background_notinset  
+oddsratio  
+pvalue  
+bonferroni-adjusted  
+name of overlapping genes
