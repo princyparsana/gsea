@@ -40,4 +40,4 @@ print >>f,"TestFile:", file_name, "\nBackgroundFile:", background_file_name, "\n
 print >>f,"\ttest_inset\ttest_notinset\tbackground_inset\tbackground_notinset\toddsratio\tpvalue\tbonferroni-adjusted\ttestgenes_in_set"
 for i in test_out:
 	print >>f, i,'\t','\t'.join(str(j) for j in test_out[i])
-fh.close()
+f.close()
