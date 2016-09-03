@@ -10,7 +10,7 @@ def readgenesets(filename):
 		for line in fh:
 			eachline = line.strip('\n').split('\t')
 			#print(len(eachline[2::]))
-			#if(len(eachline[2::]) > 30 and len(eachline[2::]) < 500):
+			#if(len(eachline[2::]) >= 30 and len(eachline[2::]) <= 500):
 			genesets[eachline[0]] = eachline[2::]
 	return genesets
 
@@ -23,7 +23,7 @@ def gsea(testlist, background, gene_set):
 	size_gene_sets = len(gene_sets)
 	enrich_out = OrderedDict()
 	for i in gene_sets:
-#		if len(gene_sets[i]) >= 50 or len(gene_sets[i]) <= 500:
+#		if len(gene_sets[i]) >= 50 and len(gene_sets[i]) <= 500:
 		test_inset = len(set(testlist).intersection(gene_sets[i]))
 		test_notinset = len(set(testlist)) - test_inset
 		background_list = set(background) - set(testlist)
